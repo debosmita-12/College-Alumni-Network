@@ -94,7 +94,36 @@ const loginUser = async (req, res) => {
         role: user.role,
     },
     });
-    
+
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+// Update Profile
+const updateProfile = async (req, res) => {
+  try {
+    // Get logged-in user from middleware
+    const user = req.user;
+
+    // Get data from request body
+    const { name, skills, industry, experience } = req.body;
+
+    // Update only the provided fields
+    if (name) user.name = name;
+    if (skills) user.skills = skills;
+    if (industry) user.industry = industry;
+    if (experience !== undefined) user.experience = experience;
+
+    // Save updated user
+    const updatedUser = await user.save();
+
+    res.status(200).json({
+      message: "Profile updated successfully!",
+      user: updatedUser,
+    });
+
   } catch (error) {
     res.status(500).json({
       message: error.message,
@@ -105,4 +134,5 @@ const loginUser = async (req, res) => {
 module.exports = {
   registerUser,
   loginUser,
+  updateProfile,
 };

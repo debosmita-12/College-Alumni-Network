@@ -1,10 +1,10 @@
 const jwt = require("jsonwebtoken");
+const User = require("../models/User");
 
 const protect = async (req, res, next) => {
   try {
     let token;
 
-    // Check Authorization Header
     if (
       req.headers.authorization &&
       req.headers.authorization.startsWith("Bearer")
@@ -13,18 +13,17 @@ const protect = async (req, res, next) => {
 
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-      const user = await User.findById(decoded.id).select("-password");
-      req.user = user;
+      // Fetch complete user from database (excluding password)
+      req.user = await User.findById(decoded.id).select("-password");
 
       next();
     } else {
-      res.status(401).json({
+      return res.status(401).json({
         message: "No token provided.",
       });
     }
-
   } catch (error) {
-    res.status(401).json({
+    return res.status(401).json({
       message: "Invalid token.",
     });
   }
