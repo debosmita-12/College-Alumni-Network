@@ -297,8 +297,4 @@ https://github.com/debosmita-12/College-Alumni-Network
 
 <div align="center">
 
-⭐ If you found this project useful, consider giving it a star!
-
-Made with ❤️ using the MERN Stack
-
 </div>
