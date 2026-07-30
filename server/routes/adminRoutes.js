@@ -9,7 +9,7 @@ const {
   deleteUser,
   deletePost,
   deleteOpportunity,
-} = require("../controllers/AdminController");
+} = require("../controllers/adminController");
 
 const {
   protect,
