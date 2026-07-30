@@ -8,12 +8,15 @@
   Connecting Students • Alumni • Mentors • Opportunities
 </p>
 
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
-![React](https://img.shields.io/badge/Frontend-React-61DAFB)
-![Node](https://img.shields.io/badge/Backend-Node.js-339933)
-![Express](https://img.shields.io/badge/Framework-Express-000000)
-![MongoDB](https://img.shields.io/badge/Database-MongoDB-47A248)
-![JWT](https://img.shields.io/badge/Auth-JWT-orange)
+| Category | Technologies |
+|----------|--------------|
+| **Frontend** | React.js, Bootstrap, CSS3, Axios |
+| **Backend** | Node.js, Express.js |
+| **Database** | MongoDB, Mongoose |
+| **Authentication** | JWT (JSON Web Token) |
+| **API** | REST API |
+| **Version Control** | Git, GitHub |
+| **Development Tools** | VS Code, Postman, npm |
 
 </div>
 
