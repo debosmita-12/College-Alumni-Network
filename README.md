@@ -287,17 +287,6 @@ This project helped us gain hands-on experience with:
 
 ---
 
-#  Contributors
-
-| Name | Role |
-|------|------|
-| **Debosmita Mukhopadhyay** | Frontend & Backend Development |
-| **Shashwat Sahu** | Full Stack Development |
-| **Shubham Sagar** | Backend Development |
-| **Tasleemuddin MD** | Frontend Development |
-
----
-
 #  Contact
 
 **GitHub Repository**
