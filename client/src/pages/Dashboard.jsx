@@ -1,105 +1,123 @@
 import Navbar from "../components/Navbar";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import "./Dashboard.css";
+
+import {
+  BsPeopleFill,
+  BsPersonCheckFill,
+  BsBriefcaseFill,
+  BsChatDotsFill,
+  BsPersonRaisedHand,
+} from "react-icons/bs";
+
 function Dashboard() {
   const { user } = useAuth();
   const navigate = useNavigate();
-    const cards = [
-    {
-        title: "Alumni Directory",
-        icon: "🎓",
-        color: "primary",
-        route: "/alumni",
-    },
-    {
-    title: "Mentorship",
-    icon: "🤝",
-    color: "success",
-    route: "/mentorship",
-    },
-    {
-        title: "Community Feed",
-        icon: "💬",
-        color: "warning",
-        route: "#",
-    },
-    {
-        title: "Messages",
-        icon: "✉️",
-        color: "info",
-        route: "#",
-    },
-    ];
+
+  const [stats, setStats] = useState({
+    totalAlumni: 0,
+    totalUsers: 0,
+    opportunities: 0,
+    unreadMessages: 0,
+    totalPosts: 0,
+  });
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const token = localStorage.getItem("token");
+
+        const { data } = await axios.get(
+          "http://localhost:5000/api/dashboard/stats",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        console.log("API Response:", data);
+        setStats(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchStats();
+  }, []);
+
   return (
     <>
       <Navbar />
 
       <div className="container mt-4">
+        <div className="welcome-card">
+          <div className="welcome-content">
+            <h5 className="welcome-time">
+              <BsPersonRaisedHand className="welcome-icon" />
+              Welcome Back
+            </h5>
 
-        <h2>
-          Welcome, {user?.name} 👋
-        </h2>
+            <h1>{user?.name}</h1>
 
-        <p className="text-muted">
-          Manage your alumni connections from one place.
-        </p>
+            <p>
+              {user?.role === "Student"
+                ? "Connect with alumni, explore opportunities and build your professional network."
+                : "Support students, share opportunities and strengthen the alumni community."}
+            </p>
+          </div>
+        </div>
 
-        <div className="row mt-4">
-
-          {cards.map((card, index) => (
-
-            <div className="col-md-6 col-lg-3 mb-4" key={index}>
-
-              <div
-                className={`card border-${card.color} shadow h-100`}
-                style={{ cursor: "pointer" }}
-                onClick={() => {
-                    if (card.route !== "#") {
-                    navigate(card.route);
-                    }
-                }}
-                >
-
-                <div className="card-body text-center">
-
-                  <h1>{card.icon}</h1>
-
-                  <h5>{card.title}</h5>
-
-                </div>
-
-              </div>
-
+        <div className="row mt-2 g-4">
+          <div className="col-lg-3 col-md-6">
+            <div className="stats-card">
+              <BsPeopleFill className="stats-icon" size={65} />
+              <h2>{stats.totalAlumni || 0}</h2>
+              <p>Registered Alumni</p>
             </div>
-
-          ))}
-
-        </div>
-
-        <div className="card shadow mt-4">
-
-          <div className="card-header bg-dark text-white">
-            Your Profile
           </div>
 
-          <div className="card-body">
-
-            <p><strong>Name:</strong> {user?.name}</p>
-
-            <p><strong>Email:</strong> {user?.email}</p>
-
-            <p><strong>Role:</strong> {user?.role}</p>
-
-            <p><strong>Skills:</strong> {user?.skills || "Not Added"}</p>
-
-            <p><strong>Industry:</strong> {user?.industry || "Not Added"}</p>
-
-            <p><strong>Experience:</strong> {user?.experience || "Not Added"}</p>
-
+          <div className="col-lg-3 col-md-6">
+            <div className="stats-card">
+              <BsPeopleFill className="stats-icon" size={65} />
+              <h2>{stats.totalUsers || 0}</h2>
+              <p>Total Users</p>
+            </div>
           </div>
 
-        </div>
+          <div className="col-lg-3 col-md-6">
+            <div className="stats-card">
+              <BsBriefcaseFill className="stats-icon" size={65} />
+              <h2>{stats.opportunities || 0}</h2>
+              <p>
+                {user?.role === "Student"
+                  ? "Opportunities"
+                  : "Posted Opportunities"}
+              </p>
+            </div>
+          </div>
 
+          <div className="col-lg-3 col-md-6">
+            <div className="stats-card">
+              <BsChatDotsFill className="stats-icon" size={65} />
+
+              {user?.role === "Admin" ? (
+                <>
+                  <h2>{stats.totalPosts || 0}</h2>
+                  <p>Community Posts</p>
+                </>
+              ) : (
+                <>
+                  <h2>{stats.unreadMessages || 0}</h2>
+                  <p>Unread Messages</p>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

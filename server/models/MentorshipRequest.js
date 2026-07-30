@@ -30,6 +30,12 @@ const mentorshipRequestSchema = new mongoose.Schema(
   }
 );
 
+// A student can send only ONE request to a particular alumnus
+mentorshipRequestSchema.index(
+  { student: 1, alumni: 1 },
+  { unique: true }
+);
+
 module.exports = mongoose.model(
   "MentorshipRequest",
   mentorshipRequestSchema

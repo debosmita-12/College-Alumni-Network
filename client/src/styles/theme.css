@@ -1,0 +1,84 @@
+/* ===========================
+   Alumni Nexus Theme
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+
+    --primary:#0A66C2;
+    --primary-dark:#16437E;
+
+    --secondary:#2563EB;
+
+    --background:#F8FAFC;
+
+    --white:#ffffff;
+
+    --text:#1F2937;
+
+    --text-light:#6B7280;
+
+    --success:#16A34A;
+
+    --danger:#DC3545;
+
+    --radius:22px;
+
+    --shadow:
+        0 10px 35px rgba(0,0,0,.08);
+
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    color:var(--text);
+
+    background-image:
+    radial-gradient(
+    circle 476px at 54.8% 51.5%,
+    rgba(168,229,253,1) 0%,
+    rgba(244,244,254,1) 42.3%,
+    rgba(244,244,254,1) 100.2%);
+
+    background-repeat:no-repeat;
+
+    background-size:cover;
+
+    background-attachment:fixed;
+
+    min-height:100vh;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+button{
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+img{
+
+    max-width:100%;
+
+}

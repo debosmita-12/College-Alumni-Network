@@ -1,5 +1,5 @@
 const Post = require("../models/Post");
-
+const MentorshipRequest = require("../models/MentorshipRequest");
 // Create a new post
 const createPost = async (req, res) => {
   try {
@@ -30,7 +30,34 @@ const createPost = async (req, res) => {
 // Get all posts
 const getAllPosts = async (req, res) => {
   try {
-    const posts = await Post.find()
+
+    // Get accepted mentorships only
+    const connections = await MentorshipRequest.find({
+      status: "Accepted",
+      $or: [
+        { student: req.user._id },
+        { alumni: req.user._id }
+      ]
+    });
+
+    // Build list of connected user IDs
+    const connectedUsers = connections.map(connection => {
+
+      if (connection.student.toString() === req.user._id.toString()) {
+        return connection.alumni;
+      }
+
+      return connection.student;
+
+    });
+
+    // Include yourself
+    connectedUsers.push(req.user._id);
+
+    // Fetch only visible posts
+    const posts = await Post.find({
+      author: { $in: connectedUsers }
+    })
       .populate("author", "name email role")
       .sort({ createdAt: -1 });
 
@@ -38,13 +65,13 @@ const getAllPosts = async (req, res) => {
       count: posts.length,
       posts,
     });
+
   } catch (error) {
     res.status(500).json({
       message: error.message,
     });
   }
 };
-
 // Update own post
 const updatePost = async (req, res) => {
   try {

@@ -1,12 +1,25 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+
+// ==============================
 // Register User
+// ==============================
 const registerUser = async (req, res) => {
   try {
-    const { name, email, password, role, skills, industry, experience } = req.body;
+    let {
+      name,
+      email,
+      password,
+      role,
+      skills,
+      industry,
+      experience,
+    } = req.body;
 
-    // Check if user already exists
+    // ============================
+    // Check if email already exists
+    // ============================
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
@@ -15,10 +28,28 @@ const registerUser = async (req, res) => {
       });
     }
 
-    // Hash password
+    // ============================
+    // Prevent Admin Registration
+    // ============================
+    if (role === "Admin") {
+      return res.status(403).json({
+        message: "Admin accounts cannot be created through registration.",
+      });
+    }
+
+    // Allow only Student or Alumni
+    if (!["Student", "Alumni"].includes(role)) {
+      role = "Student";
+    }
+
+    // ============================
+    // Hash Password
+    // ============================
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create new user
+    // ============================
+    // Create User
+    // ============================
     const newUser = new User({
       name,
       email,
@@ -27,19 +58,16 @@ const registerUser = async (req, res) => {
       skills,
       industry,
       experience,
+      isSuperAdmin: false,
     });
 
-    // Save to MongoDB
     await newUser.save();
+
+    const registeredUser = await User.findById(newUser._id).select("-password");
 
     res.status(201).json({
       message: "User registered successfully!",
-      user: {
-        id: newUser._id,
-        name: newUser.name,
-        email: newUser.email,
-        role: newUser.role,
-      },
+      user: registeredUser,
     });
 
   } catch (error) {
@@ -48,51 +76,58 @@ const registerUser = async (req, res) => {
     });
   }
 };
+
+// ==============================
 // Login User
+// ==============================
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Find user by email
+    console.log("========== LOGIN ==========");
+    console.log("Email received:", `"${email}"`);
+
+    const allUsers = await User.find();
+    console.log("Users in DB:", allUsers.map(u => u.email));
+
     const user = await User.findOne({ email });
 
-    // User not found
+    console.log("User found:", user);
+
     if (!user) {
       return res.status(404).json({
         message: "User not found.",
       });
     }
 
-    // Compare password
     const isMatch = await bcrypt.compare(password, user.password);
 
+
     if (!isMatch) {
-    return res.status(401).json({
+      return res.status(401).json({
         message: "Invalid email or password.",
-    });
+      });
     }
 
-    // Generate JWT Token
+    // Generate JWT
     const token = jwt.sign(
-    {
+      {
         id: user._id,
         role: user.role,
-    },
-    process.env.JWT_SECRET,
-    {
+      },
+      process.env.JWT_SECRET,
+      {
         expiresIn: "7d",
-    }
+      }
     );
 
+    // Fetch complete user details (without password)
+    const loggedInUser = await User.findById(user._id).select("-password");
+
     res.status(200).json({
-    message: "Login Successful!",
-    token,
-    user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-    },
+      message: "Login Successful!",
+      token,
+      user: loggedInUser,
     });
 
   } catch (error) {
@@ -101,27 +136,34 @@ const loginUser = async (req, res) => {
     });
   }
 };
+
+// ==============================
 // Update Profile
+// ==============================
 const updateProfile = async (req, res) => {
   try {
-    // Get logged-in user from middleware
     const user = req.user;
 
-    // Get data from request body
-    const { name, skills, industry, experience } = req.body;
+    const {
+      name,
+      skills,
+      industry,
+      experience,
+    } = req.body;
 
-    // Update only the provided fields
     if (name) user.name = name;
     if (skills) user.skills = skills;
     if (industry) user.industry = industry;
     if (experience !== undefined) user.experience = experience;
 
-    // Save updated user
     const updatedUser = await user.save();
+
+    // Return updated user without password
+    const safeUser = await User.findById(updatedUser._id).select("-password");
 
     res.status(200).json({
       message: "Profile updated successfully!",
-      user: updatedUser,
+      user: safeUser,
     });
 
   } catch (error) {

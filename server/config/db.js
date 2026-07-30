@@ -4,9 +4,18 @@ const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI);
 
-    console.log(` MongoDB Connected: ${conn.connection.host}`);
+    console.log("MongoDB Connected:", conn.connection.host);
+    console.log("Database Name:", conn.connection.name);
+
+    const databases = await conn.connection.db.admin().listDatabases();
+
+    console.log("========== DATABASES ==========");
+    databases.databases.forEach((db) => {
+      console.log(db.name);
+    });
+
   } catch (error) {
-    console.error(" MongoDB Connection Failed");
+    console.error("MongoDB Connection Failed");
     console.error(error.message);
     process.exit(1);
   }

@@ -1,0 +1,204 @@
+/* ==========================================
+   Career Opportunities Page
+========================================== */
+
+.page-title {
+  color: #ffffff;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.05rem;
+  margin-bottom: 30px;
+}
+
+/* ==========================================
+   Search Bar
+========================================== */
+
+.search-box {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.search-box input {
+    width: 100%;
+    height: 56px;
+    border: none;
+    border-radius: 14px;
+    padding: 0 20px 0 60px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #03282D;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,.18);
+}
+
+.search-box input::placeholder {
+    color: #6b7280;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.search-box input:focus {
+    outline: none;
+    border: none;
+    box-shadow: 0 0 0 3px rgba(3,40,45,.15);
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 22px;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    color: #03282D;
+    pointer-events: none;
+}
+/* ==========================================
+   Opportunity Card
+========================================== */
+
+.opportunity-card {
+  background: #ffffff;
+  border: none;
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.opportunity-card:hover {
+  transform: translateY(-6px);
+}
+
+.opportunity-title {
+  color: #03282d;
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.opportunity-company {
+  color: #03282d;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.opportunity-card p {
+  font-size: 1rem;
+  color: #334155;
+  margin-bottom: 12px;
+}
+
+.opportunity-card strong {
+  color: #03282d;
+}
+
+/* ==========================================
+   Labels
+========================================== */
+
+.job-type {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 30px;
+  background: rgba(3, 40, 45, 0.1);
+  color: #03282d;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* ==========================================
+   Posted By
+========================================== */
+
+/* ==========================================
+   Posted By
+========================================== */
+
+.posted-by {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+    color: #03282D;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.posted-by svg {
+    width: 22px;
+    height: 22px;
+    color: #03282D;
+    flex-shrink: 0;
+}
+
+.posted-by strong {
+    color: #03282D;
+    font-weight: 700;
+}
+
+.posted-by span {
+    color: #475569;
+}
+
+/* ==========================================
+   Buttons
+========================================== */
+
+.btn-opportunity {
+  background: linear-gradient(
+    to right,
+    #16222a 0%,
+    #3a6073 51%,
+    #16222a 100%
+  );
+  background-size: 200% auto;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 28px;
+  font-weight: 600;
+  transition: 0.35s;
+}
+
+.btn-opportunity:hover {
+  background-position: right center;
+  color: white;
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+  }
+
+  .opportunity-title {
+    font-size: 1.5rem;
+  }
+
+  .opportunity-company {
+    font-size: 1.15rem;
+  }
+
+  .search-box input {
+    font-size: 1rem;
+  }
+}

@@ -1,17 +1,24 @@
 const express = require("express");
 const router = express.Router();
 
+const { protect } = require("../middleware/authMiddleware");
+
 const {
   sendMessage,
   getConversation,
+  getChatContacts,
+  clearConversation,
 } = require("../controllers/messageController");
 
-const protect = require("../middleware/authMiddleware");
+router.get("/contacts", protect, getChatContacts);
 
-// Send a message
 router.post("/send", protect, sendMessage);
 
-// Get conversation with another user
 router.get("/conversation/:userId", protect, getConversation);
 
+router.delete(
+  "/conversation/:userId",
+  protect,
+  clearConversation
+);
 module.exports = router;

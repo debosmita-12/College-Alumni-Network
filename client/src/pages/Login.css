@@ -1,0 +1,77 @@
+/* ==========================================
+   Login Page
+========================================== */
+
+.login-page{
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+/* ==========================================
+   Login Card
+========================================== */
+
+.login-card{
+
+    width:100%;
+
+    max-width:470px;
+
+    padding:2.5rem !important;
+
+    border:none !important;
+
+    border-radius:22px !important;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.22);
+
+}
+
+/* ==========================================
+   Inputs
+========================================== */
+
+.login-card .form-control{
+
+    padding:.8rem 1rem;
+
+    border-radius:12px;
+
+}
+
+.login-card .form-control:focus{
+
+    border-color:#14B8A6;
+
+    box-shadow:0 0 0 .2rem rgba(20,184,166,.18);
+
+}
+
+/* ==========================================
+   Register Link
+========================================== */
+
+.login-register-link{
+
+    color:#062F34;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.login-register-link:hover{
+
+    color:#0B434A;
+
+    text-decoration:none;
+
+}

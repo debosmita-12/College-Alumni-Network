@@ -1,0 +1,109 @@
+/* ==========================================
+   Mentorship Requests Page
+========================================== */
+
+.page-title{
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    color:#ffffff;
+    font-size:2.4rem;
+    font-weight:700;
+
+    margin-bottom:8px;
+}
+
+.page-icon{
+    color:#ffffff;
+}
+
+.page-subtitle{
+    color:rgba(255,255,255,.90);
+    font-size:1.05rem;
+    margin-bottom:30px;
+}
+
+/* ==========================================
+   Request Card
+========================================== */
+
+.request-card{
+    background:#ffffff;
+    border:none;
+    border-radius:22px;
+    padding:22px;
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+    transition:.3s;
+}
+
+.request-card:hover{
+    transform:translateY(-5px);
+}
+
+.request-card h4{
+    color:#03282D;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.request-card p{
+    color:#475569;
+    font-size:1rem;
+    margin-bottom:10px;
+}
+
+.request-card strong{
+    color:#03282D;
+}
+
+/* ==========================================
+   Buttons
+========================================== */
+
+.request-actions{
+    margin-top:20px;
+    display:flex;
+    gap:12px;
+}
+
+.accept-btn{
+
+    background:linear-gradient(
+        to right,
+        #16222A 0%,
+        #3A6073 51%,
+        #16222A 100%
+    );
+
+    background-size:200% auto;
+
+    color:white;
+    border:none;
+    border-radius:12px;
+
+    padding:10px 24px;
+
+    transition:.35s;
+}
+
+.accept-btn:hover{
+
+    background-position:right center;
+    color:white;
+
+}
+
+.reject-btn{
+
+    border-radius:12px;
+
+}
+
+@media(max-width:768px){
+
+    .page-title{
+        font-size:2rem;
+    }
+
+}
