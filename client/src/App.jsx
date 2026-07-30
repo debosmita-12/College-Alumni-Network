@@ -14,11 +14,12 @@ import CreateOpportunity from "./pages/CreateOpportunity";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminDashboard from "./pages/AdminDashboard";
 import MyRequests from "./pages/MyRequests";
+import Landing from "./pages/Landing";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Landing />} />
 
         <Route path="/login" element={<Login />} />
 

@@ -1,0 +1,64 @@
+.create-opportunity-container {
+    max-width: 780px;
+    margin: 40px auto;
+}
+
+.create-card {
+    border: none;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.18);
+}
+
+.create-card .card-body{
+    padding:35px;
+}
+
+.page-title{
+    color:white;
+    font-size:2.4rem;
+    font-weight:700;
+}
+
+.page-subtitle{
+    color:rgba(255,255,255,.92);
+    font-size:1.05rem;
+    margin-top:8px;
+    margin-bottom:30px;
+}
+
+.form-label{
+    font-weight:600;
+    color:#03282D;
+}
+
+.form-control,
+.form-select{
+    border-radius:12px;
+    padding:12px;
+}
+
+.form-control:focus,
+.form-select:focus{
+    border-color:#03282D;
+    box-shadow:0 0 0 .15rem rgba(3,40,45,.15);
+}
+
+textarea{
+    resize:none;
+}
+
+.btn-grad{
+    background:#03282D;
+    color:white;
+    border:none;
+    border-radius:12px;
+    padding:12px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-grad:hover{
+    background:#05454d;
+    color:white;
+}

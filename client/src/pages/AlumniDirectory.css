@@ -12,218 +12,228 @@
     margin-bottom: 8px;
 }
 
-.page-icon{
-    color:#ffffff;
+.page-icon {
+    color: #ffffff;
 }
 
-.page-subtitle{
-    color:rgba(255,255,255,.90);
-    font-size:1.08rem;
-    margin-bottom:30px;
+.page-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.08rem;
+    margin-bottom: 30px;
 }
 
 /* ==========================================
    Search Box
 ========================================== */
 
-.search-box{
-    position:relative;
-    width:100%;
-    margin-bottom:35px;
+.search-box {
+    position: relative;
+    width: 100%;
+    margin-bottom: 35px;
 }
 
-.search-box input{
-    width:100%;
-    height:56px;
-    border:none;
-    border-radius:14px;
-    padding:0 20px 0 58px;
-    background:#fff;
-    color:#03282D;
-    font-size:1rem;
-    box-shadow:0 10px 24px rgba(0,0,0,.18);
-    transition:.3s;
+.search-box input {
+    width: 100%;
+    height: 56px;
+    border: none;
+    border-radius: 14px;
+    padding: 0 20px 0 58px;
+    background: #ffffff;
+    color: #03282D;
+    font-size: 1rem;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    transition: 0.3s;
 }
 
-.search-box input::placeholder{
-    color:#6b7280;
+.search-box input::placeholder {
+    color: #6b7280;
 }
 
-.search-box input:focus{
-    outline:none;
-    box-shadow:0 0 0 3px rgba(3,40,45,.15);
+.search-box input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(3, 40, 45, 0.15);
 }
 
-.search-icon{
-    position:absolute;
-    top:50%;
-    left:20px;
-    transform:translateY(-50%);
-    color:#03282D;
-    pointer-events:none;
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: #03282D;
+    pointer-events: none;
 }
 
 /* ==========================================
    Alumni Card
 ========================================== */
 
-.alumni-card{
-    background:#fff;
-    border-radius:22px;
-    padding:24px;
-    height:100%;
-    box-shadow:0 15px 35px rgba(0,0,0,.18);
-    transition:.35s;
+.alumni-card {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 24px;
+    height: 100%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+    transition: 0.35s;
 }
 
-.alumni-card:hover{
-    transform:translateY(-6px);
+.alumni-card:hover {
+    transform: translateY(-6px);
 }
 
 /* ==========================================
    Header
 ========================================== */
 
-.alumni-header{
-    display:flex;
-    align-items:center;
-    gap:18px;
-    margin-bottom:18px;
+.alumni-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
 }
 
-.alumni-avatar svg{
-    color:#03282D;
+.alumni-avatar svg {
+    color: #03282D;
 }
 
-.alumni-name{
-    margin:0;
-    color:#03282D;
-    font-size:1.7rem;
-    font-weight:700;
+.alumni-name {
+    margin: 0;
+    color: #03282D;
+    font-size: 1.7rem;
+    font-weight: 700;
 }
 
-.alumni-role{
-    color:#64748b;
-    font-size:.98rem;
+.alumni-role {
+    color: #64748b;
+    font-size: 0.98rem;
 }
 
 /* ==========================================
    Information
 ========================================== */
 
-.alumni-info p{
-    margin-bottom:14px;
-    color:#334155;
-    line-height:1.65;
-    font-size:1rem;
+.alumni-info p {
+    margin-bottom: 14px;
+    color: #334155;
+    line-height: 1.65;
+    font-size: 1rem;
 }
 
-.alumni-info strong{
-    color:#03282D;
+.alumni-info strong {
+    color: #03282D;
 }
 
 /* ==========================================
-   Button
+   Buttons
 ========================================== */
 
-.alumni-btn{
-
-    background:linear-gradient(
+.alumni-btn {
+    background: linear-gradient(
         to right,
         #16222A 0%,
         #3A6073 51%,
         #16222A 100%
     );
 
-    background-size:200% auto;
-    color:#fff;
-    border:none;
-    border-radius:12px;
-    padding:12px;
-    font-weight:600;
-    transition:.35s;
+    background-size: 200% auto;
+    color: #ffffff !important;
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    font-weight: 600;
+    transition: 0.35s;
 }
 
-.alumni-btn:hover{
-
-    background-position:right center;
-    color:#fff;
-
-}
-
-/* Accepted */
-
-.btn-success{
-    border:none;
-    border-radius:12px;
-    font-weight:600;
+.alumni-btn:hover {
+    background-position: right center;
+    color: #ffffff !important;
 }
 
 /* Pending */
 
-.btn-secondary{
-    border:none;
-    border-radius:12px;
-    font-weight:600;
+.btn-secondary {
+    background: #6c757d !important;
+    color: #ffffff !important;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+/* Accepted */
+
+.btn-success {
+    background: #198754 !important;
+    color: #ffffff !important;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
 }
 
 /* Rejected */
 
-.btn-danger{
-    border:none;
-    border-radius:12px;
-    font-weight:600;
+.btn-danger {
+    background: #dc3545 !important;
+    color: #ffffff !important;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+/* Disabled Buttons */
+
+.alumni-btn:disabled,
+.btn-success:disabled,
+.btn-secondary:disabled,
+.btn-danger:disabled {
+    color: #ffffff !important;
+    opacity: 0.9;
+    cursor: not-allowed;
 }
 
 /* ==========================================
    Alumni Profile Label
 ========================================== */
 
-.alumni-profile-label{
-
-    margin-top:18px;
-    text-align:center;
-    font-weight:700;
-    color:#475569;
-    font-size:1.05rem;
-
+.alumni-profile-label {
+    margin-top: 18px;
+    text-align: center;
+    font-weight: 700;
+    color: #475569;
+    font-size: 1.05rem;
 }
 
 /* ==========================================
    Divider
 ========================================== */
 
-.alumni-card hr{
-
-    margin:18px 0;
-    color:#d1d5db;
-
+.alumni-card hr {
+    margin: 18px 0;
+    color: #d1d5db;
 }
 
 /* ==========================================
    Responsive
 ========================================== */
 
-@media(max-width:992px){
+@media (max-width: 992px) {
 
-    .alumni-name{
-        font-size:1.45rem;
+    .alumni-name {
+        font-size: 1.45rem;
     }
 
 }
 
-@media(max-width:768px){
+@media (max-width: 768px) {
 
-    .page-title{
-        font-size:2rem;
+    .page-title {
+        font-size: 2rem;
     }
 
-    .page-subtitle{
-        font-size:1rem;
+    .page-subtitle {
+        font-size: 1rem;
     }
 
-    .alumni-card{
-        padding:22px;
+    .alumni-card {
+        padding: 22px;
     }
 
 }

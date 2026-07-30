@@ -232,8 +232,12 @@ function AlumniDirectory() {
                       }
                     >
                       {request
-                        ? request.status
-                        : "Send Mentorship Request"}
+                      ? request.status === "Pending"
+                        ? "Request Sent (Pending)"
+                        : request.status === "Accepted"
+                        ? "Request Accepted"
+                        : "Request Rejected"
+                      : "Send Mentorship Request"}
                     </button>
 
                   ) : (
