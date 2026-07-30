@@ -8,20 +8,6 @@
   Connecting Students • Alumni • Mentors • Opportunities
 </p>
 
-| Category | Technologies |
-|----------|--------------|
-| **Frontend** | React.js, Bootstrap, CSS3, Axios |
-| **Backend** | Node.js, Express.js |
-| **Database** | MongoDB, Mongoose |
-| **Authentication** | JWT (JSON Web Token) |
-| **API** | REST API |
-| **Version Control** | Git, GitHub |
-| **Development Tools** | VS Code, Postman, npm |
-
-</div>
-
----
-
 #  Overview
 
 **Alumni Nexus** is a full-stack MERN web application that bridges the gap between **students** and **alumni** through mentorship, networking, community engagement, and career opportunities.
