@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import API from "../api";
+import API from "../services/api";
 import "./Dashboard.css";
 
 import {
