@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../api";
 import "./Dashboard.css";
 
 import {
@@ -28,16 +28,8 @@ function Dashboard() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const token = localStorage.getItem("token");
 
-        const { data } = await axios.get(
-          "http://localhost:5000/api/dashboard/stats",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const { data } = await API.get("/dashboard/stats");
 
         console.log("API Response:", data);
         setStats(data);
